@@ -8,3 +8,5 @@ script = ExtResource( 1 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Spatial" type="Spatial" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
