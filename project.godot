@@ -39,6 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="DualityGGJ2022"
+run/main_scene="res://Scenes/Camera2D.tscn"
 config/icon="res://icon.png"
 
 [autoload]
