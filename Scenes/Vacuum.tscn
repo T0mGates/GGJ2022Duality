@@ -20,6 +20,8 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 1 )
+max_x_pull = 16
+multi = 10
 
 [node name="VaccumRange" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 150 )

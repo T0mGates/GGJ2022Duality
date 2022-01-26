@@ -12,13 +12,13 @@ position = Vector2( 495, 289 )
 scale = Vector2( 16, 9 )
 
 [node name="Boulder2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 358, 352 )
+position = Vector2( 428, 352 )
 
 [node name="Boulder" parent="." instance=ExtResource( 2 )]
 position = Vector2( 350, 200 )
 
 [node name="Boulder3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 811, 429 )
+position = Vector2( 588, 198 )
 
 [node name="Boulder4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 685, 318 )
@@ -27,7 +27,17 @@ position = Vector2( 685, 318 )
 position = Vector2( 192, 193 )
 
 [node name="Vacuum" parent="." instance=ExtResource( 3 )]
-position = Vector2( 762, 114 )
+position = Vector2( 600, 284 )
+rotation = 1.5708
 
 [node name="Repel" parent="." instance=ExtResource( 4 )]
-position = Vector2( 268, 118 )
+position = Vector2( -366, 116 )
+rotation = -1.5708
+
+[node name="Repel2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -83, 455 )
+rotation = 1.5708
+
+[node name="Vacuum2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 137, 295 )
+rotation = -1.5708
