@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/boulderforwilliam.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Boulder.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 29.0
 height = 14.0
 
-[node name="Boulder" type="RigidBody2D"]
+[node name="Boulder" type="RigidBody2D" groups=["pullable"]]
 position = Vector2( 503, 343 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
