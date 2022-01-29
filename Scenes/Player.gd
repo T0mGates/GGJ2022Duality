@@ -17,6 +17,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if linear_velocity.length() > 0:
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.animation = "stand"
+		$AnimatedSprite.stop()
+	
+	if linear_velocity.x != 0 and touch_ground == true:
+		$AnimatedSprite.animation = "move"
+		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.flip_h = linear_velocity.x < 0
+	elif linear_velocity.y != 0:
+		$AnimatedSprite.animation = "jump"
+		$AnimatedSprite.flip_h = linear_velocity.x < 0
 	pass
 	
 func _integrate_forces(state):

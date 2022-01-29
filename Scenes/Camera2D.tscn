@@ -1,12 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Boulder.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Vacuum.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Repel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
-
-[sub_resource type="PhysicsMaterial" id=1]
 
 [node name="Camera2D" type="Camera2D"]
 
@@ -15,29 +13,25 @@ position = Vector2( 495, 289 )
 scale = Vector2( 16, 9 )
 
 [node name="Boulder2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 826, 466 )
+position = Vector2( 358, 352 )
 
 [node name="Boulder" parent="." instance=ExtResource( 2 )]
-position = Vector2( 734, 286 )
+position = Vector2( 350, 200 )
 
 [node name="Boulder3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 761, 356 )
+position = Vector2( 811, 429 )
 
 [node name="Boulder4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 855, 346 )
+position = Vector2( 685, 318 )
 
 [node name="Boulder5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 543, 149 )
+position = Vector2( 192, 193 )
 
 [node name="Vacuum" parent="." instance=ExtResource( 3 )]
-position = Vector2( 937, 118 )
-rotation = 1.5708
+position = Vector2( 762, 114 )
 
 [node name="Repel" parent="." instance=ExtResource( 4 )]
-position = Vector2( 102, 123 )
-rotation = -1.5708
+position = Vector2( 268, 118 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 214, 419 )
-physics_material_override = SubResource( 1 )
-gravity_scale = 3.2
+position = Vector2( 510, 469 )

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Sprites/Man.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Gravity Boy Sprites/Gravity Boy Run 3.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Gravity Boy Sprites/Gravity Boy Stand.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Gravity Boy Sprites/Gravity Boy Run 1.png" type="Texture" id=5]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -12,6 +14,24 @@ height = 8.0
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 19.5, 6 )
 
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "move",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+} ]
+
 [node name="Player" type="RigidBody2D"]
 mode = 2
 mass = 0.510204
@@ -20,14 +40,7 @@ gravity_scale = 5.0
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 multiplier = 6
-
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -37,6 +50,11 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -0.5, 61 )
 shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 4 )
+animation = "jump"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

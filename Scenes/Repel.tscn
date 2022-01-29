@@ -15,8 +15,6 @@ height = 166.016
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 2 )
-max_x_push = 16
-multi = 10
 
 [node name="VaccumRange" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 150 )

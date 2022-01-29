@@ -2,40 +2,39 @@
 
 [ext_resource path="res://Pull.gd" type="Script" id=1]
 [ext_resource path="res://Vacuum.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/vacuum.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Gun.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 173.0
+radius = 311.0
 height = 60.0
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 55.0
-height = 166.016
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 44.5, 55 )
 
-[node name="Vacuum" type="Node2D"]
+[node name="Node2D" type="Node2D"]
+position = Vector2( 50, 0 )
+rotation = -1.5708
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.105, 0.105 )
+texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 1 )
+max_x_pull = 16
+multi = 10
 
 [node name="VaccumRange" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 150 )
+position = Vector2( 0, 389.555 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
-
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-mass = 35.7143
-gravity_scale = 0.0
 
-[node name="ObjectHitbox" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -0.008, -10 )
-rotation = 1.5708
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -2.5, 2 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
