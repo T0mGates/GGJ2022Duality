@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Pull.gd" type="Script" id=1]
 [ext_resource path="res://Vacuum.gd" type="Script" id=2]
@@ -7,9 +7,9 @@
 [ext_resource path="res://Sprites/Real Grav Boy Sprites/Vacuum effect 3.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Real Grav Boy Sprites/Vacuum.png" type="Texture" id=6]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 173.0
-height = 60.0
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 124.0
+height = 158.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -19,7 +19,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Vacuum" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 105.5, 42 )
+
+[node name="Vacuum" type="Node2D" groups=["delete"]]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -27,10 +30,14 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 1 )
+min_x_pull = 500.0
+max_x_pull = 700.0
+min_y_pull = 200.0
+max_y_pull = 300.0
 
 [node name="VaccumRange" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 150 )
-shape = SubResource( 1 )
+position = Vector2( 0, 180 )
+shape = SubResource( 4 )
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Area2D"]
 frames = SubResource( 2 )
@@ -51,8 +58,9 @@ texture = ExtResource( 6 )
 mass = 35.7143
 gravity_scale = 0.0
 
-[node name="ObjectHitbox" type="CollisionPolygon2D" parent="RigidBody2D"]
-polygon = PoolVector2Array( 41, -41, 110, 47, -109, 47, -41, -41 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -0.5, 1 )
+shape = SubResource( 3 )
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]

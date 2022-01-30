@@ -17,4 +17,34 @@ func _ready():
 
 
 func _on_Level1_pressed():
-	get_tree().change_scene("res://Scenes/Camera2D.tscn")
+	$haha.play()
+	get_tree().change_scene("res://Scenes/level1.tscn")
+
+
+func _on_Level2_pressed():
+	$haha.play()
+	get_tree().change_scene("res://Scenes/level2 (1).tscn")
+
+
+func _on_Level3_pressed():
+	$haha.play()
+	get_tree().change_scene("res://Scenes/level3.tscn")
+
+
+func _on_Level4_pressed():
+	$haha.play()
+	get_tree().change_scene("res://Scenes/level4.tscn")
+
+
+func _on_Level5_pressed():
+	$haha.play()
+	get_tree().change_scene("res://Scenes/level5.tscn")
+
+
+func _on_Level6_pressed():
+	$haha.play()
+	get_tree().change_scene("res://Scenes/level6.tscn")
+
+
+func _on_haha_tree_exited():
+	$haha.play()

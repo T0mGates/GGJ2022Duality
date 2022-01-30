@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100000, 50 )
+
+[node name="Node2D" type="Node2D" groups=["deathbox"]]
+position = Vector2( 0, 1150 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["deathbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["deathbox"]]
+position = Vector2( 369, -95.5 )
+shape = SubResource( 1 )

@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Level Assets/floating platform.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/PadPlat.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 112.5, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 114.5, 9 )
+
+[node name="PadPlat" type="RigidBody2D" groups=["Platform", "terrain", "up"]]
+position = Vector2( 1027, 552 )
+collision_layer = 3
+collision_mask = 3
+mode = 1
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="." groups=["terrain", "up"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="." groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

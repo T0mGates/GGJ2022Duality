@@ -17,4 +17,9 @@ func _ready():
 
 
 func _on_Play_pressed():
+	$AudioStreamPlayer.play()
 	get_tree().change_scene("res://Scenes/LevelSelect.tscn")
+
+
+func _on_AudioStreamPlayer_tree_exited():
+	$AudioStreamPlayer.play()

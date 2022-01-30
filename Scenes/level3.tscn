@@ -1,0 +1,410 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/PlatformUp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/deathbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Vacuum.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PressurePad.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Level Assets/floating platform.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/LevelEnd.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Boulder.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/PlatformDown.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Repel.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 112.5, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 114.5, 9 )
+
+[node name="level1" type="StaticBody2D"]
+
+[node name="PlatformUp" type="RigidBody2D" parent="." groups=["Platform", "terrain", "up"]]
+position = Vector2( 912, 909 )
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformUp"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformUp"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformUp" groups=["terrain", "up"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformUp" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformUp/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformUp3" type="RigidBody2D" parent="." groups=["Platform", "terrain", "up"]]
+position = Vector2( 1136, 190 )
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformUp3"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformUp3"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformUp3" groups=["terrain", "up"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformUp3" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformUp3/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformUp4" type="RigidBody2D" parent="." groups=["Platform", "terrain", "up"]]
+position = Vector2( 1371, 192 )
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformUp4"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformUp4"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformUp4" groups=["terrain", "up"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformUp4" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformUp4/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformUp2" type="RigidBody2D" parent="." groups=["Platform", "terrain", "up"]]
+position = Vector2( 367, 906 )
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformUp2"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformUp2"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformUp2" groups=["terrain", "up"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformUp2" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformUp2/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformLeft" type="RigidBody2D" parent="." groups=["Platform", "left", "terrain"]]
+position = Vector2( 1097, 406 )
+rotation = -1.5708
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformLeft"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformLeft"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformLeft" groups=["Left", "terrain"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformLeft" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformLeft/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformRight" type="RigidBody2D" parent="." groups=["Platform", "right", "terrain"]]
+position = Vector2( 646, 660 )
+rotation = 1.5708
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformRight"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformRight"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformRight" groups=["Right", "terrain"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformRight" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformRight/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformRight2" type="RigidBody2D" parent="." groups=["Platform", "right", "terrain"]]
+position = Vector2( 648, 188 )
+rotation = 1.5708
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformRight2"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformRight2"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformRight2" groups=["Right", "terrain"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformRight2" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformRight2/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformDown" type="RigidBody2D" parent="." groups=["Down", "Platform", "terrain"]]
+position = Vector2( 877, -144 )
+rotation = 3.14159
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformDown"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformDown"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformDown" groups=["terrain", "up"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformDown" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformDown/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlatformDown3" type="RigidBody2D" parent="." groups=["Down", "Platform", "terrain"]]
+position = Vector2( 383, 592 )
+rotation = 3.14159
+collision_layer = 3
+collision_mask = 3
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="PlatformDown3"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformDown3"]
+visible = false
+polygon = PoolVector2Array( 24, 27, 37, 46, 65, 24, 104, 34, 123, 3, 118, -10, -100, -10, -107, 5, -92, 7, -91, 26, -53, 27, -38, 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TackableArea" type="CollisionShape2D" parent="PlatformDown3" groups=["terrain", "up"]]
+visible = false
+position = Vector2( 9.5, -0.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="PlatformDown3" groups=["Platform"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformDown3/Area2D"]
+position = Vector2( 7.5, -1 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." groups=["feet"] instance=ExtResource( 4 )]
+position = Vector2( 914, 812 )
+
+[node name="PlayerCamera" type="Camera2D" parent="Player"]
+visible = false
+current = true
+zoom = Vector2( 1.8, 1.8 )
+smoothing_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+position = Vector2( 954, 279 )
+
+[node name="PressurePad" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1375, 152 )
+location = Vector2( 1920, 200 )
+
+[node name="PressurePad2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1909, 157 )
+scale = Vector2( 0.995213, 1 )
+location = Vector2( 2400, 160 )
+
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Platform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1259, 885 )
+
+[node name="Platform2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2876, 210 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2879, 100 )
+
+[node name="Vacuum" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1264, 608 )
+
+[node name="bold" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1262, 847 )
+
+[node name="bold2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 384, 820 )
+
+[node name="PlatformDown2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1272, 573 )
+
+[node name="Repel" parent="." instance=ExtResource( 11 )]
+position = Vector2( 381, 890 )
+rotation = 3.14159

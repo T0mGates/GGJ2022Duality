@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PlatformUp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Laser.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/deathbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlatformDown.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/LevelEnd.tscn" type="PackedScene" id=7]
+
+[node name="level6" type="Area2D"]
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1519, 769 )
+
+[node name="Platform" parent="." instance=ExtResource( 3 )]
+position = Vector2( 150, 537 )
+
+[node name="Platform2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 812, 540 )
+
+[node name="Platform3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2447, 129 )
+
+[node name="Platform4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3142, 412 )
+
+[node name="Platform6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2458, 414 )
+
+[node name="Platform5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1993, 606 )
+
+[node name="Platform7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1154, 872 )
+
+[node name="Platform8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1494, 872 )
+
+[node name="PlatformDown" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1657, -21 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 155, 414 )
+
+[node name="Laser" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1022, 382 )
+rotation = -1.31074
+
+[node name="Laser8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2730, 136 )
+
+[node name="Laser11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1492, 507 )
+
+[node name="Laser9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1660, 352 )
+rotation = 1.5708
+
+[node name="Laser10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1663, 601 )
+rotation = 1.5708
+
+[node name="Laser12" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1666, 842 )
+rotation = 1.5708
+
+[node name="Laser13" parent="." instance=ExtResource( 4 )]
+position = Vector2( 980, 639 )
+rotation = 1.5708
+
+[node name="Laser14" parent="." instance=ExtResource( 4 )]
+position = Vector2( 980, 883 )
+rotation = 1.5708
+
+[node name="Laser2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1118, 144 )
+rotation = -1.09258
+
+[node name="Laser3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1275, -51 )
+rotation = -0.764454
+
+[node name="Laser4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1483, -177 )
+rotation = -0.436332
+
+[node name="Laser5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1723, -196 )
+rotation = 0.109956
+
+[node name="Laser6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1955, -93 )
+rotation = 0.654498
+
+[node name="Laser7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2174, 65 )
+rotation = 0.675442
+
+[node name="Node2D" parent="." instance=ExtResource( 5 )]

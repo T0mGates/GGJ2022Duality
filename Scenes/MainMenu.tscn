@@ -1,10 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fonts/telegrama_render.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ButtonStyles/enabled_style.tres" type="StyleBox" id=2]
 [ext_resource path="res://ButtonStyles/hovered_button.tres" type="StyleBox" id=3]
 [ext_resource path="res://ButtonStyles/pressed_style.tres" type="StyleBox" id=4]
 [ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Real Grav Boy Sprites/Vacuum effect 3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Real Grav Boy Sprites/Vacuum.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Real Grav Boy Sprites/Repel effect 3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Real Grav Boy Sprites/Repeller.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Real Grav Boy Sprites/Gravity Boy Run 3.png" type="Texture" id=11]
+[ext_resource path="res://sfx/blip.wav" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -70,4 +77,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" parent="." instance=ExtResource( 6 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 205, 356 )
+texture = ExtResource( 11 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 810, 500 )
+rotation = 3.14159
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 810, 230 )
+texture = ExtResource( 10 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 810, 340 )
+texture = ExtResource( 9 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 810, 380 )
+texture = ExtResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="tree_exited" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_tree_exited"]

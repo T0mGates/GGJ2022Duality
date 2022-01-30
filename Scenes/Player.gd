@@ -14,7 +14,7 @@ var canFire = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,16 +44,20 @@ func _integrate_forces(state):
 		linear_velocity.x += multiplier * speed
 	if Input.is_action_just_pressed("ui_up"):  #for jumping
 		if touch_ground == true:
-			apply_impulse(Vector2(), Vector2(0, -jump_speed))
+			$jump.play()
+			apply_central_impulse(Vector2(0, -jump_speed))
+			#add_force(Vector2.ZERO, Vector2(0, -10))
 
 
 func _on_Area2D_body_entered(touching):
-	if touching.get_name() == "Platform":
+	if touching.get_name() == "Platform" or touching.is_in_group("Platform"):
 		touch_ground = true
+	if touching.is_in_group("deathbox"):
+		get_tree().change_scene("res://Scenes/LevelSelect.tscn")
 
 
 func _on_Area2D_body_exited(just_left):
-	if just_left.get_name() == "Platform":
+	if just_left.get_name() == "Platform" or just_left.is_in_group("Platform"):
 		touch_ground = false
 		
 func _unhandled_input(event):
@@ -61,9 +65,11 @@ func _unhandled_input(event):
 		if event.button_index == BUTTON_LEFT: #shoot repel shot
 			if event.pressed:
 				shoot(true)
+				$shoot.play()
 		elif event.button_index == BUTTON_RIGHT: #shoot repel shot
 			if event.pressed:
 				shoot(false)
+				$shoot.play()
 		var timer = $FireRate
 		timer.wait_time = 0.15
 		timer.start()
@@ -76,8 +82,29 @@ func shoot(repel):
 	get_parent().add_child(hole)
 	if hole.has_method("create"):
 		var new_hole = hole.create(repel, self.global_position)
-		
-
 
 func _on_FireRate_timeout():
 	canFire = true
+	
+func getallnodes(node):
+	for N in node.get_children():
+		if N.get_child_count() > 0:
+			print("["+N.get_name()+"]")
+			getallnodes(N)
+		else:
+			# Do something
+			print("- "+N.get_name())	
+
+func _on_Player_body_entered(body):
+	if body.get_name() == "Laser":
+		get_tree().call_group("delete","scene_load")
+		get_tree().change_scene("res://Scenes/LevelSelect.tscn")
+		$death.play()
+	if body.is_in_group("levelend"):
+		get_tree().call_group("delete","scene_load")
+		get_tree().change_scene("res://Scenes/LevelSelect.tscn")
+		$death.play()
+	if body.is_in_group("deathbox"):
+		get_tree().call_group("delete","scene_load")
+		get_tree().change_scene("res://Scenes/LevelSelect.tscn")
+		$death.play()

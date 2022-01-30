@@ -11,7 +11,7 @@ scroll_limit_end = Vector2( 0, 1080 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="1st"]
 motion_scale = Vector2( 0.25, 1 )
-motion_mirroring = Vector2( 1920, 0 )
+motion_mirroring = Vector2( 1920, 1080 )
 
 [node name="Sprite" type="Sprite" parent="1st/ParallaxLayer"]
 texture = ExtResource( 3 )
@@ -22,7 +22,7 @@ scroll_limit_end = Vector2( 0, 1080 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="2nd"]
 motion_scale = Vector2( 0.15, 1 )
-motion_mirroring = Vector2( 1920, 0 )
+motion_mirroring = Vector2( 1920, 1080 )
 
 [node name="Sprite" type="Sprite" parent="2nd/ParallaxLayer"]
 texture = ExtResource( 2 )
@@ -33,7 +33,7 @@ scroll_limit_end = Vector2( 0, 1080 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="3rd"]
 motion_scale = Vector2( 0.1, 1 )
-motion_mirroring = Vector2( 1920, 0 )
+motion_mirroring = Vector2( 1920, 1080 )
 
 [node name="Sprite" type="Sprite" parent="3rd/ParallaxLayer"]
 texture = ExtResource( 1 )
