@@ -75,7 +75,7 @@ func shoot(repel):
 	var hole = orb.instance()
 	get_parent().add_child(hole)
 	if hole.has_method("create"):
-		hole.create(repel, self.global_position)
+		var new_hole = hole.create(repel, self.global_position)
 		
 
 

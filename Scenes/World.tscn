@@ -8,7 +8,7 @@ extents = Vector2( 31.9531, 2.23438 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.16014, 31.6875 )
 
-[node name="World" type="StaticBody2D" groups=["terrain"]]
+[node name="World" type="StaticBody2D" groups=["terrain", "up"]]
 scale = Vector2( 16, 16 )
 
 [node name="Sprite" type="Sprite" parent="."]

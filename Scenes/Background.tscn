@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Real Grav Boy Sprites/ggj space background 3.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Real Grav Boy Sprites/ggj space background 2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Real Grav Boy Sprites/ggj space background 1.png" type="Texture" id=3]
+
+[node name="Background" type="Node2D"]
+
+[node name="1st" type="ParallaxBackground" parent="."]
+scroll_limit_end = Vector2( 0, 1080 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="1st"]
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="1st/ParallaxLayer"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="2nd" type="ParallaxBackground" parent="."]
+scroll_limit_end = Vector2( 0, 1080 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="2nd"]
+motion_scale = Vector2( 0.15, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="2nd/ParallaxLayer"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="3rd" type="ParallaxBackground" parent="."]
+scroll_limit_end = Vector2( 0, 1080 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="3rd"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="3rd/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
