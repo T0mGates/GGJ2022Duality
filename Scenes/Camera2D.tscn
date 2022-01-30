@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Boulder.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Vacuum.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Repel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/testPlat.tscn" type="PackedScene" id=6]
 
 [node name="Camera2D" type="Camera2D"]
+zoom = Vector2( 2, 2 )
 
 [node name="World" parent="." instance=ExtResource( 1 )]
 position = Vector2( 495, 289 )
 scale = Vector2( 16, 9 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="Boulder2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 358, 352 )
@@ -35,3 +39,6 @@ position = Vector2( 268, 118 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 510, 469 )
+
+[node name="testPlat" parent="." instance=ExtResource( 6 )]
+position = Vector2( 497, 298 )

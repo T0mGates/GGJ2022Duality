@@ -6,9 +6,9 @@
 extents = Vector2( 31.9531, 2.23438 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 2.05859, 27.4531 )
+extents = Vector2( 2.16014, 31.6875 )
 
-[node name="World" type="StaticBody2D"]
+[node name="World" type="StaticBody2D" groups=["terrain"]]
 scale = Vector2( 16, 16 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -22,7 +22,7 @@ shape = SubResource( 1 )
 
 [node name="Left Wall" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( -28.8867, 1.03125 )
+position = Vector2( -28.7851, 1.25 )
 shape = SubResource( 2 )
 
 [node name="Right Wall" type="CollisionShape2D" parent="."]
@@ -30,9 +30,16 @@ visible = false
 position = Vector2( 31.0156, 1.10938 )
 shape = SubResource( 2 )
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="." groups=["terrain"]]
+collision_layer = 3
+collision_mask = 3
 
-[node name="Floor" type="CollisionShape2D" parent="Platform"]
+[node name="Floor2" type="CollisionShape2D" parent="Platform"]
+visible = false
+position = Vector2( 1.04688, 30.875 )
+shape = SubResource( 1 )
+
+[node name="Floor" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 1.04688, 30.875 )
 shape = SubResource( 1 )

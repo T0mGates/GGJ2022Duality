@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Black Hole Sprites/Black Hole2.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Black Hole Sprites/Black Hole1.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Orb.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Vacuum.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Repel.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 16.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 32.0624
+
+[node name="Orb" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+repel = ExtResource( 5 )
+vacuum = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="viable" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_Orb_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_orb_body_entered"]
+[connection signal="timeout" from="viable" to="." method="_on_viable_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

@@ -9,6 +9,8 @@ export var multiplier = 1     #multiplier for velocity
 var speed = 100   #speed of player
 var jump_speed = 175
 var touch_ground = true
+export (PackedScene) var orb 
+var canFire = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,8 @@ func _process(delta):
 	elif linear_velocity.y != 0:
 		$AnimatedSprite.animation = "jump"
 		$AnimatedSprite.flip_h = linear_velocity.x < 0
+		
+	
 	pass
 	
 func _integrate_forces(state):
@@ -51,3 +55,29 @@ func _on_Area2D_body_entered(touching):
 func _on_Area2D_body_exited(just_left):
 	if just_left.get_name() == "Platform":
 		touch_ground = false
+		
+func _unhandled_input(event):
+	if event is InputEventMouseButton and canFire:
+		if event.button_index == BUTTON_LEFT: #shoot repel shot
+			if event.pressed:
+				shoot(true)
+		elif event.button_index == BUTTON_RIGHT: #shoot repel shot
+			if event.pressed:
+				shoot(false)
+		var timer = $FireRate
+		timer.wait_time = 0.15
+		timer.start()
+		canFire = false
+					
+	
+		
+func shoot(repel):
+	var hole = orb.instance()
+	get_parent().add_child(hole)
+	if hole.has_method("create"):
+		hole.create(repel, self.global_position)
+		
+
+
+func _on_FireRate_timeout():
+	canFire = true
